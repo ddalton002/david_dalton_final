@@ -68,4 +68,4 @@ weaponlaunch: megaweapon.o CinReader.o
 
 #cleans up old .o files	*.o
 clean:
-	rm *test 
+	rm *test

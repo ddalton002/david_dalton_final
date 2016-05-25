@@ -12,32 +12,35 @@
 */
 unsigned int Activator::getPrime(unsigned int whichPrime) 
 {
-    /*
-    unsigned int i = 3, count, c;
-    for (count = 2; count <= whichPrime;)
+    
+    unsigned int counter = 1;
+    unsigned int incrementedValue = 0;
+    bool prime = false;
+    if(whichPrime == 1)
     {
-        for (c=2; c<=i -1; c++)
+        return 2;
+    }
+    for(unsigned int i = 3; i <= 500000; i = i + 2)
+    {
+        for(unsigned int j = 2; j <= ceil(sqrt(i)); j++)
         {
-            if(i%c == 0)
-            break;
+            prime = true;
+            if(i % j == 0)
+            {
+                prime = false;
+                break;
+            }
+        }
+        if(prime == true)
+        {
+            counter++;
+            if(counter == whichPrime)
+            {
+                incrementedValue = i;
+            }
         }
     }
-    if(c==i)
-    {
-        count++;
-    }
-    return i;*/
-    //http://www.programmingsimplified.com/c/source-code/c-program-for-prime-number
-    if(whichPrime == 12345)
-    {
-        return 132241;
-    } else if(whichPrime == 8719)
-    {
-        return 90023;
-    } else
-    {
-        return 109;
-    }
+    return incrementedValue;
 }
 /**
 * return the sum of the digits in a value
